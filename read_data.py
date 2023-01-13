@@ -12,4 +12,4 @@ def read_data(file_path: str)->dict:
     #open file
     f = open(file_path = "UTF8")
     data = f.read()
-    return json.loads(dat)
+    return json.loads(data)
