@@ -9,9 +9,11 @@ def find_all_users_id(data: dict)->list:
     Returns:
         list: List containing all the users id
     """
-    list_print = []
-    for i in data["messages"]:
-        if i.get('from_id'):
-            if i['from_id'] not in list_print:
-                list_print.append(i['from_id'])
-    return list_print
+    ans = []
+    users = data['messages']
+    for i in users:
+        if i['type'] == 'service' and i.get('actor_id') not in ans:
+            ans.append(i.get('actor_id'))
+    return ans
+d = read_data('data/result.json')
+print(find_all_users_id(d))
