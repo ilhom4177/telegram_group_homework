@@ -10,6 +10,7 @@ def read_data(file_path: str)->dict:
     
     """
     #open file
-    f = open(file_path = "UTF8")
-    data = f.read()
-    return json.loads(data)
+    f = open(file_path, "r", encoding="utf8")
+    data=f.read()
+    data=json.loads(data)
+    return data
